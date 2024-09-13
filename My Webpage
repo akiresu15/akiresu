@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<h1 style= "background-color:DodgerBlue;"><title> MY FIRST PROJECT </title></h1>
+	<body bgcolor="lightblue">
+	<meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+<body>
+	<center><h1> WEBSITE </h1></center>
+	<marquee direction ="left" scrollamount ="10">
+	<p> for project purpose only </p>
+	</marquee>
+	
+</body>
+</html>
+	<body>
+	<i><h1> Google </h1><i>
+	<h6>created by: Baltazar, Archilles Jaspher S.</h6>
+
+<style>
+	input[type=text] {
+	width: 100%;
+	<box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: dark black;	
+	background-image: url('searchicon.jpg');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12x 20px 12px 40px;
+}
+</style>
+	<form>
+	<input type="text" name="search" placeholder="Search..">
+	</form
+	</div>	
+	<p><a href="https://www.google.com/">Google</a></p>
+	<p><a href="https://www.firefox.com/">firefox</a></p>
+	<p><a href="https://www.youtube.com/">youtube</a></p>
+	<p><a href="https://www.instagram.com/">instagram</a></p>
+	<p><a href="https://www.facebook.com/">Facebook</a></p>
+
+<footer>
+    <p>&copy; 2024 Projectonlythatimade. All Rights Reserved.</p>
+</footer>
+
+
+</body>
+</html>
