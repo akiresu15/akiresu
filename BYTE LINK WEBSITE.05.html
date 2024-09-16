@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTE LINK</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: maroon; /* Changed to red background */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency to contrast text */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: lightblue; /* Changed to light blue font color */
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid Darkblue; /* Light blue border */
+            border-radius: 5px;
+            color: lightblue; /* Light blue text color */
+            background-color: #fff; /* White background for input */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: Darkblue; /* Light blue background for button */
+            color: red; /* Red text for button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: Darkblue; /* Slightly darker light blue on hover */
+        }
+
+        .search-results {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .search-results p {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 5px solid Darkblue; /* Light blue border on left */
+            color: Darkblue; /* Light blue text */
+        }
+
+        .search-results a {
+            color: Darkblue; /* Light blue links */
+            text-decoration: none;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: lightblue; /* Light blue footer text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BYTE LINK</h1>
+        <input type="text" id="searchInput" placeholder="Type something to search..." />
+        <br />
+        <button onclick="saveSearch()">Search & Save</button>
+
+        <div class="search-results" id="searchResults">
+            <h2>Search History:</h2>
+            <!-- Search history results will appear here -->
+        </div>
+    </div>
+
+    <script>
+    // Load previously saved searches from localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        displaySearches();
+        
+        // Add event listener for "Enter" key on search input
+        document.getElementById('searchInput').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                saveSearch();  // Call the saveSearch function when Enter is pressed
+            }
+        });
+    });
+
+    function saveSearch() {
+        // Get the search input value
+        const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+
+        if (searchInput === "") {
+            alert("Please enter something to search.");
+            return;
+        }
+
+        // Handle specific search for "tiktok"
+        if (searchInput.includes("tiktok")) {
+            // Display the TikTok link directly in the search results
+            displayLink("TikTok", "https://www.tiktok.com/@achilles.gaming0?_t=8picDele6CY&_r=1/");
+            return;
+        }
+
+        // Handle specific search for "github"
+        if (searchInput.includes("github")) {
+            // Display the GitHub link directly in the search results
+            displayLink("GitHub", "https://github.com/akiresu15");
+            return;
+        }
+
+        // Handle specific search for "W3school"
+        if (searchInput.includes("w3school")) {
+            // Display the W3school link directly in the search results
+            displayLink("W3School", "https://www.w3schools.com/html/default.asp");
+            return;
+        }
+
+        // Retrieve any existing searches from localStorage
+        let searches = JSON.parse(localStorage.getItem('searches')) || [];
+
+        // Add the new search to the array
+        searches.push(searchInput);
+
+        // Save the updated array back to localStorage
+        localStorage.setItem('searches', JSON.stringify(searches));
+
+        // Display the updated searches
+        displaySearches();
+
+        // Clear the search input field
+        document.getElementById('searchInput').value = "";
+    }
+
+    function displaySearches() {
+        const searchResultsDiv = document.getElementById('searchResults');
+        const searches = JSON.parse(localStorage.getItem('searches')) || [];
+
+        // Clear previous search results
+        searchResultsDiv.innerHTML = "<h2>Search History:</h2>";
+
+        // Display all the searches
+        searches.forEach(search => {
+            const p = document.createElement('p');
+            p.textContent = search;
+            searchResultsDiv.appendChild(p);
+        });
+    }
+
+    function displayLink(name, url) {
+        const searchResultsDiv = document.getElementById('searchResults');
+        
+        // Clear previous search results
+        searchResultsDiv.innerHTML = "<h2>Search History:</h2>";
+
+        const p = document.createElement('p');
+        const a = document.createElement('a');
+        a.href = url;
+        a.textContent = name;
+        a.target = "_blank";  // Open link in a new tab
+        p.appendChild(a);
+
+        searchResultsDiv.appendChild(p);
+    }
+</script>
+<footer>
+    &copy; 2024 Website project purposes only | All Rights Reserved 
+    <br>
+    <a href="https://github.com/akiresu15" target="_blank">Visit My GitHub Profile</a>
+</footer>
